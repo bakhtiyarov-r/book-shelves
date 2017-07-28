@@ -140,10 +140,7 @@ $brown-darker:  darken($brown, 10%);
             	-webkit-transform: rotateY(90deg);
                 -moz-transform: rotateY(90deg);
                 transform: rotateY(90deg); 
-                /*transition-duration: 1s;
-	   	        -webkit-transition-duration: 1s;
-                -moz-transition-duration: 1s;*/
-
+                
 	   	        &_green{
 	   	        	background: $green;
 	   	        }
@@ -157,34 +154,46 @@ $brown-darker:  darken($brown, 10%);
 	   	        	background: $brown;
 	   	        }
 
+	   	    }
 
+	   	    &__content{
+	   	    	display: none;
+                &_open{
+                display: block;
+                width: 350px;
+                height: 250px;
+                margin: auto;
+
+                }                              
 	   	    }
 
 	   	    &__face-author, &__face-title{   
-	   	           top: 20px;
-                   position: relative;
-                   cursor: pointer;
-	   	        }
+	   	        top: 20px;
+                position: relative;
+                cursor: pointer;
+	   	    } 
+	   	   
+	   }
 
-
-         /*  &:hover .book-item__face{ 	
-            	-webkit-transform: rotateY(0deg);
-                -moz-transform: rotateY(0deg);
-                transform: rotateY(0deg);     
-            }
-
-            &:hover .book-item__cover{
-            	height: 200px;
-                width: 40px;
-            	-webkit-transform-origin: 100% 100%;
-                -moz-transform-origin: 100% 100%;   
-                transform-origin: 100% 100%;
-
-            	-webkit-transform: rotateY(-80deg);
-                -moz-transform: rotateY(-80deg);
-                transform: rotateY(-80deg);
-                
-            } */
+	   .wrapper{
+	   	  display: block;
+	   	  z-index: 10000;
+          background: #fff;
+          border: 1px solid #ccc;
+          box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+          -moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+          -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+          position: absolute;
+          top: 200px;              
+	   	  width: 400px;
+          height: 300px;
+          left: -9999px;
+	   	  transition:all 1s;
+	   	  -webkit-transition:all 1s;
+          -moz-transition:all 1s;
+          &_open{          	  
+              left: 500px;           
+          }          
 	   }
 
 	   .shelf {

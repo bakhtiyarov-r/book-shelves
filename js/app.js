@@ -9,42 +9,49 @@ bookshelfApp.controller("bookshelfController", ['$scope', 'orderByFilter', funct
 	     authorInit: "Л. Н.",
 	     authorName: "Лев",
 	     authorSurname: "Толстой",
+	     content: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
 	     cover: "green"
 	    },
 	    { title: "Женщины",
 	     authorInit: "Ч.",
 	     authorName: "Чарльз",
 	     authorSurname: "Буковски",
+	     content: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
 	     cover: "red"
 	    },	    
 	    { title: "Анна Каренина",
 	     authorInit: "Л. Н.",
 	     authorName: "Лев",
 	     authorSurname: "Толстой",
+	     content: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
 	     cover: "blue"
 	    },
 	    { title: "На лестнице",
 	     authorInit: "А.",
 	     authorName: "Артур",
 	     authorSurname: "Моррисон",
+	     content: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
 	     cover: "green"
 	    },
 	    { title: "Мастер и Маргарита",
 	     authorInit: "М.",
 	     authorName: "Михаил",
 	     authorSurname: "Булгаков",
+	     content: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
 	     cover: "brown"
 	    },
 	    { title: "Последний дюйм",
 	     authorInit: "Д.",
 	     authorName: "Джеймс",
 	     authorSurname: "Олдридж",
+	     content: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
 	     cover: "green"
 	    },
 	    { title: "Война и мир",
 	     authorInit: "Л. Н.",
 	     authorName: "Лев",
 	     authorSurname: "Толстой",
+	     content: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.',
 	     cover: "red"
 	    }
 	];
@@ -241,6 +248,15 @@ function start(e) {
   };
 
 };
+
+document.addEventListener("click", function(e) {   
+   var elem = e.target.closest('.book-item__face'); 
+   if (!elem) return; 
+   var wrapper = document.querySelector('.wrapper');
+   wrapper.classList.add('wrapper_open');
+   wrapper.appendChild(elem.nextElementSibling); 
+   wrapper.firstElementChild.classList.add('book-item__content_open');
+});
 
 
 

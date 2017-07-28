@@ -26,16 +26,23 @@
     			<span class="book-item__author">{{book.authorInit}} {{book.authorSurname}}</span><br><span class="book-item__title">{{book.title}}</span>
     		</div>
     		<div class="book-item__face book-item__face_{{book.cover}}">
-    			<span class="book-item__face-author">{{book.authorName}} {{book.authorSurname}}</span><br><span class="book-item__face-title">{{book.title}}</span>
+    			<span class="book-item__face-author">{{book.authorName}} {{book.authorSurname}}</span><br><span class="book-item__face-title">{{book.title}}</span>	 
     		</div>
-    		<div class="book-item__rotate"></div>    		
+    		<div class="book-item__content"><p>{{book.content}}</p>
+    		</div>
+    		<div class="book-item__rotate">
+    			
+    		</div>
+
     	</li>
     	<li class="shelf" ng-repeat-end ng-if="($index+1)%4 == 0 || $last" ng-repeat-end></li>
     	
-    </ul>
-    
+      </ul>   
 
   </div>	
+
+  <div class="wrapper"></div>
+
 
   <script src="https://code.angularjs.org/1.3.1/angular.js"></script>
 
