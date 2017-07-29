@@ -249,14 +249,38 @@ function start(e) {
 
 };
 
-document.addEventListener("click", function(e) {   
+document.addEventListener("click", function(e) {   // Клик на обложку книги
    var elem = e.target.closest('.book-item__face'); 
    if (!elem) return; 
    var wrapper = document.querySelector('.wrapper');
-   wrapper.classList.add('wrapper_open');
-   wrapper.appendChild(elem.nextElementSibling); 
-   wrapper.firstElementChild.classList.add('book-item__content_open');
+   showCover();
+   wrapper.classList.add('wrapper_open');       // Открываем подложку и вставляем в нее контент из книги
+   var bookContent = elem.nextElementSibling;
+   wrapper.appendChild(bookContent);            
+   wrapper.lastElementChild.classList.add('book-item__content_open');
+
+   var wrapperClose = wrapper.querySelector('.wrapper__close');
+   
+   wrapperClose.onclick = function() {         // Закрываем подложку возвращаем контент обратно в книгу
+   	hideCover();
+   	wrapper.lastElementChild.classList.remove('book-item__content_open');
+   	wrapper.classList.remove('wrapper_open');
+   	elem.parentElement.insertBefore(bookContent, elem.nextElementSibling);
+
+   }
+   
+
 });
 
+// полупрозрачный DIV, затеняющий всю страницу
+    function showCover() {
+      var coverDiv = document.createElement('div');
+      coverDiv.className = 'cover';
+      document.body.appendChild(coverDiv);
+    }
+
+    function hideCover() {
+      document.body.removeChild(document.querySelector('.cover'));
+    } 
 
 
