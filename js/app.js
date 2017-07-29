@@ -264,7 +264,7 @@ document.addEventListener("click", function(e) {   // Клик на обложк
    wrapperClose.onclick = function() {         // Закрываем подложку возвращаем контент обратно в книгу
    	hideCover();
    	wrapper.lastElementChild.classList.remove('book-item__content_open');
-   	wrapper.classList.remove('wrapper_open');
+   	wrapper.classList.remove('wrapper_open');   	
    	elem.parentElement.insertBefore(bookContent, elem.nextElementSibling);
 
    }

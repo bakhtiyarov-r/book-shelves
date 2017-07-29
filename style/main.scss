@@ -17,6 +17,46 @@ $brown-darker:  darken($brown, 10%);
     background: linear-gradient(to right, $color 0%, $color-lighter 50%,$color 100%);
 }
 
+
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }   
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(openWrapper)  {
+  0% {
+	-webkit-transform: scale3d(0.1,0.1,1);
+    -moz-transform: scale3d(0.1,0.1,1);
+    transform: scale3d(0.1,0.1,1); 
+  }
+  55% {
+    -webkit-transform: scale3d(1.1,1.1,1);
+    -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0);
+  }
+  70% {
+    -webkit-transform: scale3d(0.9,0.9,1);
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.9);
+  }
+  85% {
+    -webkit-transform: scale3d(1.1,1.1,1);
+    -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0);
+  }
+  100% {
+	-webkit-transform: scale3d(1,1,1);
+    -moz-transform: scale3d(1,1,1);
+    transform: scale3d(1,1,1);    
+  }
+}
+
+
 .sort{
 	width: 500px;
 	height: 50px;
@@ -160,8 +200,7 @@ $brown-darker:  darken($brown, 10%);
                 display: block;
                 width: 350px;
                 height: 250px;
-                margin: auto;
-
+                margin: auto;                
                 }                              
 	   	    }
 
@@ -173,8 +212,8 @@ $brown-darker:  darken($brown, 10%);
 	   	   
 	   }
 
-	   .wrapper{
-	   	  display: block;
+	   .wrapper{	   	  
+	   	  display: none;
 	   	  z-index: 999999;
           background: #fff;
           border: 1px solid #ccc;
@@ -182,13 +221,18 @@ $brown-darker:  darken($brown, 10%);
           -moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
           -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
           position: absolute;
-          top: 200px;              
+          top: 200px;  
+          left: 500px;            
 	   	  width: 400px;
           height: 300px;
-          left: -9999px;
-	   	  transition:all 1s;
-	   	  -webkit-transition:all 1s;
-          -moz-transition:all 1s;
+          -webkit-perspective: 300px;
+          perspective: 300px;
+
+          &_open{    
+          	animation: openWrapper 500ms ease-out;            
+            display: block;         
+          }           
+         
           &__close{
              position: absolute;
              font-size: 100%;
@@ -201,10 +245,7 @@ $brown-darker:  darken($brown, 10%);
              border: none;
              background: transparent;
              cursor: pointer;
-          }
-          &_open{          	  
-              left: 500px;           
-          }          
+          }                   
 	   }
 
 	   .shelf {
