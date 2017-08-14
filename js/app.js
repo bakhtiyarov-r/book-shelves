@@ -1,5 +1,6 @@
 'use strict';
 
+
 var bookshelfApp = angular.module("bookshelfApp", []);
 
 bookshelfApp.controller("bookshelfController", ['$scope', 'orderByFilter', function($scope, orderBy) {
